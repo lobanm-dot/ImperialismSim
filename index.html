@@ -202,6 +202,14 @@
         .result-block { border-left: 10px solid var(--primary); margin-bottom: 40px; background: white; padding: 30px; box-shadow: var(--shadow); }
         .result-label { font-weight: bold; text-transform: uppercase; font-size: 0.85rem; color: #7f8c8d; font-family: sans-serif; }
         .user-memo-box { background: #f9f9f9; padding: 20px; font-family: 'Courier New', Courier, monospace; border: 1px dashed #999; margin: 15px 0; }
+        
+        .historical-comparison {
+            background: #fff8e1;
+            border: 1px solid #fbc02d;
+            padding: 20px;
+            margin-top: 20px;
+            font-style: italic;
+        }
 
         .spinner { border: 4px solid rgba(0, 0, 0, 0.1); width: 40px; height: 40px; border-radius: 50%; border-left-color: var(--accent); animation: spin 1s linear infinite; }
         @keyframes spin { to { transform: rotate(360deg); } }
@@ -384,69 +392,47 @@
                 title: 'Hawaii (1893)',
                 context: 'In 1887, white business owners forced the King of Hawaii to sign the "Bayonet Constitution" (at gunpoint). It took away power from the King and gave it to the businessmen. In 1893, Queen Liliʻuokalani tried to change the laws to give power back to native Hawaiians. The American businessmen, with help from U.S. troops, overthrew her. They now want the U.S. to "annex" (officially take over) Hawaii. They say it is good for business and the Navy. President Cleveland is worried because the Queen was a friend to America and the takeover was done illegally.',
                 imagePrompt: '1893 Honolulu, Iolani Palace, armed men and U.S. sailors, old photograph style.',
+                historyReality: 'In reality, President Cleveland refused to annex Hawaii because he believed the overthrow was a "disgrace" and a violation of Hawaiian sovereignty. He even tried to restore the Queen. However, the white businessmen simply formed their own "Republic of Hawaii" and waited. Five years later, during the Spanish-American War in 1898, President William McKinley finally annexed the islands, arguing that the U.S. needed the naval base at Pearl Harbor to fight a global war. Hawaii remained a territory for 60 years before becoming a state in 1959.',
                 options: [
-                    { 
-                        type: 'Annex', 
-                        title: 'Full Takeover (Annexation)', 
-                        desc: 'Make Hawaii an official part of the United States immediately.', 
-                        pro1: 'Gives the Navy a permanent base (Pearl Harbor).', 
-                        pro2: 'Helps sugar companies avoid paying taxes on their goods.', 
-                        con1: 'It supports a rebellion that was done illegally.', 
-                        con2: 'It takes away the right of native Hawaiians to rule themselves.' 
-                    },
-                    { 
-                        type: 'Influence', 
-                        title: 'The Middle Ground', 
-                        desc: 'Keep the Army there to protect U.S. interests, but don’t officially take over yet.', 
-                        pro1: 'Keeps other countries like Japan from taking the islands.', 
-                        pro2: 'Gives the U.S. control without the political drama of a full takeover.', 
-                        con1: 'Hawaii stays in a confusing and unstable situation.', 
-                        con2: 'Native Hawaiians are still ruled by the businessmen who led the coup.' 
-                    },
-                    { 
-                        type: 'Leave', 
-                        title: 'Restore the Queen', 
-                        desc: 'Remove U.S. troops and demand that the Queen be put back in power.', 
-                        pro1: 'Shows the world that America follows its own rules about freedom.', 
-                        pro2: 'Avoids the high cost of ruling an island thousands of miles away.', 
-                        con1: 'The Queen might kick out American businesses or the Navy.', 
-                        con2: 'American sugar companies will lose a lot of money.' 
-                    }
+                    { type: 'Annex', title: 'Full Takeover (Annexation)', desc: 'Make Hawaii an official part of the United States immediately.', pro1: 'Gives the Navy a permanent base (Pearl Harbor).', pro2: 'Helps sugar companies avoid paying taxes on their goods.', con1: 'It supports a rebellion that was done illegally.', con2: 'It takes away the right of native Hawaiians to rule themselves.' },
+                    { type: 'Influence', title: 'The Middle Ground', desc: 'Keep the Army there to protect U.S. interests, but don’t officially take over yet.', pro1: 'Keeps other countries like Japan from taking the islands.', pro2: 'Gives the U.S. control without the political drama of a full takeover.', con1: 'Hawaii stays in a confusing and unstable situation.', con2: 'Native Hawaiians are still ruled by the businessmen who led the coup.' },
+                    { type: 'Leave', title: 'Restore the Queen', desc: 'Remove U.S. troops and demand that the Queen be put back in power.', pro1: 'Shows the world that America follows its own rules about freedom.', pro2: 'Avoids the high cost of ruling an island thousands of miles away.', con1: 'The Queen might kick out American businesses or the Navy.', con2: 'American sugar companies will lose a lot of money.' }
+                ]
+            },
+            {
+                id: 'samoa',
+                title: 'Samoa (1899)',
+                context: 'The islands of Samoa are strategically located in the South Pacific. For years, the U.S., Great Britain, and Germany have all been competing for control because of the excellent harbor at Pago Pago. Tensions are high—all three nations have sent warships, and a civil war has broken out among the Samoan people over who should be King. Each empire is backing a different Samoan leader. A direct war between the U.S. and Germany seems possible unless a deal is reached.',
+                imagePrompt: '1890s Pago Pago harbor, Samoa, steamships and tropical huts, vintage photo.',
+                historyReality: 'In reality, the three nations signed the Tripartite Convention of 1899. They simply divided the islands between them without asking the Samoan people. Germany took the western islands, and the United States took the eastern islands (which became American Samoa). Great Britain withdrew its claim in exchange for territory in Africa and the Solomon Islands. American Samoa remains a U.S. territory to this day, and its harbor at Pago Pago remains a vital naval station.',
+                options: [
+                    { type: 'Annex', title: 'Partition the Islands', desc: 'Negotiate with Germany to split the islands in half and take the harbor.', pro1: 'Secures a vital coaling station for the Navy.', pro2: 'Prevents a costly war with a major European power (Germany).', con1: 'The Samoan people lose their unity and independence.', con2: 'It sets a precedent of "carving up" lands with other empires.' },
+                    { type: 'Influence', title: 'Joint Protectorate', desc: 'Try to rule the islands together with Germany and Britain.', pro1: 'Keeps the peace between the three great powers.', pro2: 'Maintains the appearance of Samoan self-rule.', con1: 'Three-way governments are historically messy and often fail.', con2: 'It leads to constant arguing and very little progress.' },
+                    { type: 'Leave', title: 'Strict Neutrality', desc: 'Withdraw all ships and let the Samoans decide their own future.', pro1: 'Follows the principle of self-determination.', pro2: 'Saves money and keeps U.S. troops out of foreign civil wars.', con1: 'Germany or Britain will almost certainly take over the whole thing.', con2: 'The U.S. Navy loses its only "stepping stone" to Australia.' }
+                ]
+            },
+            {
+                id: 'china',
+                title: 'China (1899)',
+                context: 'China is a massive market for trade, but it is weak. European powers (Britain, France, Germany, Russia) and Japan have already established "Spheres of Influence"—areas where only they are allowed to trade. The U.S. arrived late to the game and has no sphere. American businessmen fear they will be completely locked out of the Chinese market. Suddenly, a group called the "Boxers" has started a violent rebellion to kick all foreigners out of China. The European powers are preparing to send armies to crush the rebels and potentially colonize China completely.',
+                imagePrompt: '1900 Beijing, Boxer Rebellion, soldiers of different nations, historical scene.',
+                historyReality: 'In reality, Secretary of State John Hay issued the "Open Door Notes." He asked all nations to agree to keep trade in China open to everyone equally and to respect China’s borders. This was a clever move because it prevented China from being colonized like Africa while ensuring U.S. business could compete. When the Boxer Rebellion turned violent, the U.S. joined an eight-nation alliance to crush the uprising but insisted that China remain independent. This "Open Door Policy" became the cornerstone of U.S. relations with Asia for decades.',
+                options: [
+                    { type: 'Annex', title: 'Seize a Port', desc: 'Send troops to take over a specific port city (like Tianjin) to ensure we have a base.', pro1: 'Guarantees we have a permanent "front door" for trade.', pro2: 'Allows us to protect American missionaries and merchants directly.', con1: 'Might lead to a war with the other empires already there.', con2: 'It is very expensive to defend a city on the other side of the world.' },
+                    { type: 'Influence', title: 'The Open Door Policy', desc: 'Demand that all nations keep trade open to everyone and respect China\'s borders.', pro1: 'Protects American business without needing to occupy land.', pro2: 'Makes the U.S. look like a "protector" of weaker nations.', con1: 'Other countries might ignore us because we don\'t have a large army there.', con2: 'It doesn\'t actually give the U.S. any military control.' },
+                    { type: 'Leave', title: 'Total Non-Interference', desc: 'Stay out of China entirely and let the internal rebellion play out.', pro1: 'Avoids getting dragged into a messy international conflict.', pro2: 'Avoids the "Boxer" anger directed at foreign invaders.', con1: 'U.S. businesses will likely go bankrupt as they lose the market.', con2: 'The other empires will likely divide China among themselves.' }
                 ]
             },
             {
                 id: 'panama',
                 title: 'Panama (1903)',
-                context: 'The U.S. wants to build a canal across Panama (which belongs to the country of Colombia) so ships can go from the Atlantic to the Pacific quickly. Colombia rejected our offer for the land because they want more money and fear losing control of their territory. People in Panama want to be their own independent country. President Teddy Roosevelt is considering helping the Panamanian rebels. If the U.S. Navy blocks Colombia from stopping the rebels, the rebels will give us the land for the canal for a cheap price. However, this would mean betraying Colombia.',
+                context: 'The U.S. wants to build a canal across Panama (which belongs to Colombia). Colombia rejected our offer for the land because they want more money. People in Panama want to be their own independent country. President Teddy Roosevelt is considering helping the Panamanian rebels. If the U.S. Navy blocks Colombia from stopping the rebels, the rebels will give us the land for the canal for a cheap price. However, this would mean betraying Colombia.',
                 imagePrompt: '1903 U.S. Navy ship near Panama, jungle background, vintage black and white.',
+                historyReality: 'In reality, President Theodore Roosevelt sent the USS Nashville to the coast of Panama to prevent Colombian troops from landing to stop the rebellion. With U.S. naval protection, the Panamanian rebels successfully declared independence. Just days later, the new government of Panama signed a treaty giving the U.S. permanent control of the Canal Zone. Roosevelt later famously said, "I took the Isthmus." While the canal was a massive engineering success, it led to decades of resentment in Latin America toward "Yankee Imperialism."',
                 options: [
-                    { 
-                        type: 'Annex', 
-                        title: 'Support the Rebellion', 
-                        desc: 'Send the Navy to help Panama break away from Colombia.', 
-                        pro1: 'We get to build the canal right away.', 
-                        pro2: 'American ships will dominate global trade.', 
-                        con1: 'Other countries in South America will see us as a bully.', 
-                        con2: 'It breaks a treaty we signed to respect Colombia’s borders.' 
-                    },
-                    { 
-                        type: 'Influence', 
-                        title: 'Keep Negotiating', 
-                        desc: 'Offer Colombia more money ($25 million) and wait for them to agree.', 
-                        pro1: 'We follow international laws and keep our reputation clean.', 
-                        pro2: 'It prevents a potential war or violent uprising.', 
-                        con1: 'It could take many more years to start the canal.', 
-                        con2: 'A country like France or Germany might steal the deal.' 
-                    },
-                    { 
-                        type: 'Leave', 
-                        title: 'Build Somewhere Else', 
-                        desc: 'Give up on Panama and build a canal through Nicaragua instead.', 
-                        pro1: 'Avoids all the political fighting with Colombia.', 
-                        pro2: 'Nicaragua has a large lake that makes digging easier.', 
-                        con1: 'There are active volcanoes in Nicaragua that could destroy the canal.', 
-                        con2: 'All the money already spent in Panama would be wasted.' 
-                    }
+                    { type: 'Annex', title: 'Support the Rebellion', desc: 'Send the Navy to help Panama break away from Colombia.', pro1: 'We get to build the canal right away.', pro2: 'American ships will dominate global trade.', con1: 'Other countries in South America will see us as a bully.', con2: 'It breaks a treaty we signed to respect Colombia’s borders.' },
+                    { type: 'Influence', title: 'Keep Negotiating', desc: 'Offer Colombia more money ($25 million) and wait for them to agree.', pro1: 'We follow international laws and keep our reputation clean.', pro2: 'It prevents a potential war or violent uprising.', con1: 'It could take many more years to start the canal.', con2: 'A country like France or Germany might steal the deal.' },
+                    { type: 'Leave', title: 'Build Somewhere Else', desc: 'Give up on Panama and build a canal through Nicaragua instead.', pro1: 'Avoids all the political fighting with Colombia.', pro2: 'Nicaragua has a large lake that makes digging easier.', con1: 'There are active volcanoes in Nicaragua that could destroy the canal.', con2: 'All the money already spent in Panama would be wasted.' }
                 ]
             }
         ];
@@ -469,9 +455,7 @@
         function showPage(pageId) { document.querySelectorAll('.page').forEach(p => p.classList.remove('active')); document.getElementById(pageId).classList.add('active'); window.scrollTo(0,0); }
         function resetApp() { location.reload(); }
 
-        function openResearch(url) {
-            window.open(url, '_blank');
-        }
+        function openResearch(url) { window.open(url, '_blank'); }
 
         async function generateImage(prompt, imgId, loaderId = null) {
             const img = document.getElementById(imgId);
@@ -519,9 +503,7 @@
                 <div class="philosophy-box">
                     <p style="margin:0;">"${f.philosophy}"</p>
                 </div>
-                <button onclick="openResearch('${f.link}')" class="research-btn">
-                    CLICK TO LEARN MORE
-                </button>
+                <button onclick="openResearch('${f.link}')" class="research-btn">CLICK TO LEARN MORE</button>
             `;
         }
 
@@ -543,8 +525,8 @@
                     <div class="opt-body">
                         <p style="font-weight:bold; color:var(--primary);">${opt.desc}</p>
                         <div class="t-chart">
-                            <div class="t-col"><span class="t-label t-pro">PROS (Good)</span>• ${opt.pro1}<br>• ${opt.pro2}</div>
-                            <div class="t-col"><span class="t-label t-con">CONS (Bad)</span>• ${opt.con1}<br>• ${opt.con2}</div>
+                            <div class="t-col"><span class="t-label t-pro">PROS</span>• ${opt.pro1}<br>• ${opt.pro2}</div>
+                            <div class="t-col"><span class="t-label t-con">CONS</span>• ${opt.con1}<br>• ${opt.con2}</div>
                         </div>
                     </div>`;
                 container.appendChild(card);
@@ -566,7 +548,6 @@
             const locId = locations[currentLocIndex].id;
             if (!userDecisions[locId]) userDecisions[locId] = { choice: null, memo: "" };
             userDecisions[locId].memo = document.getElementById('memo-input').value;
-            
             if (dir === 1 && !userDecisions[locId]?.choice) { alert("Please pick an option first."); return; }
             if (dir === 1 && currentLocIndex === locations.length - 1) { revealResults(); return; }
             currentLocIndex += dir; renderLocation();
@@ -582,6 +563,10 @@
                         <h3>Case Study: ${loc.title}</h3>
                         <p><span class="result-label">Your Decision:</span> ${user.choice}</p>
                         <div class="user-memo-box"><strong>YOUR REASONING:</strong><br>"${user.memo}"</div>
+                        <div class="historical-comparison">
+                            <span class="briefing-label" style="border:none; margin-bottom:5px; color:#d4a017;">What Actually Happened:</span>
+                            ${loc.historyReality}
+                        </div>
                     </div>`;
             });
             container.innerHTML = html; showPage('page4');
